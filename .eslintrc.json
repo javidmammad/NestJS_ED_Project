@@ -1,0 +1,51 @@
+{
+  "extends": ["prettier"],
+  "plugins": ["react", "react-native", "@typescript-eslint", "prettier"],
+  "env": {
+    "es6": true,
+    "jest": true,
+    "node": true,
+    "jasmine": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "camelcase": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    "react/prop-types": 0,
+    "react/function-component-definition": 0, // This is an extremely iritating rule
+    "arrow-body-style": "warn",
+    "no-undef": "off", // This is covered by Typescript
+    "no-underscore-dangle": 0,
+    "import/newline-after-import": "off",
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-use-before-define": "warn",
+    "@typescript-eslint/no-use-before-define": ["error", { "functions": false }],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "react/require-default-props": 0,
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    "default-param-last": "off",
+    "react/jsx-props-no-spreading": 0,
+    "react/no-array-index-key": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".android.js", ".ios.js"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
+  "globals": {
+    "JSX": true
+  }
+}
