@@ -1,5 +1,5 @@
 {
-  "extends": ["prettier"],
+  "extends": ["airbnb", "prettier"],
   "plugins": ["react", "react-native", "@typescript-eslint", "prettier"],
   "env": {
     "es6": true,
@@ -9,33 +9,30 @@
   },
   "parser": "@typescript-eslint/parser",
   "rules": {
-    "camelcase": "off",
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
-    ],
-    "react/prop-types": 0,
-    "react/function-component-definition": 0, // This is an extremely iritating rule
     "arrow-body-style": "warn",
+    "camelcase": "off",
+    "class-methods-use-this": "off",
     "no-undef": "off", // This is covered by Typescript
+    "default-param-last": "off",
+    "max-classes-per-file": "off",
     "no-underscore-dangle": 0,
-    "import/newline-after-import": "off",
+    "no-useless-constructor": "off",
+    "no-return-await": "off",
+    "no-empty-function": "off",
+    "no-unused-vars": "off",
+    "no-use-before-define": "error",
+    "no-shadow": "off",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    "no-redeclare": "off",
+    "import/imports-first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }],
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "import/prefer-default-export": 0,
-    "no-unused-vars": "off",
     // "@typescript-eslint/no-unused-vars": "error",
-    "no-use-before-define": "warn",
     "@typescript-eslint/no-use-before-define": ["error", { "functions": false }],
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"],
-    "react/require-default-props": 0,
-    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
-    "default-param-last": "off",
-    "react/jsx-props-no-spreading": 0,
-    "react/no-array-index-key": 0
+    "@typescript-eslint/no-shadow": ["error"]
   },
   "settings": {
     "import/resolver": {

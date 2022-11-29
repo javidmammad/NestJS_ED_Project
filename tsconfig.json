@@ -1,18 +1,26 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "target": "es2017",
+    "module": "commonjs",
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "module": "CommonJS",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ES2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "incremental": true,
-    "strict": true,
     "strictPropertyInitialization": false,
-    "skipLibCheck": true
-  }
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  },
+  "include": ["src/**/*", "declarations.d.ts", "proximus", "proximus/prx-sdk/global.d.ts"]
 }

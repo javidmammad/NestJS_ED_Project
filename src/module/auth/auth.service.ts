@@ -1,11 +1,11 @@
 import { HttpException, HttpStatus, Injectable, UnauthorizedException } from '@nestjs/common';
 import { ModelType } from '@typegoose/typegoose/lib/types';
 import { InjectModel } from 'nestjs-typegoose';
+import { genSalt, hash, compare } from 'bcryptjs';
+import { JwtService } from '@nestjs/jwt';
 import { AuthDto } from './dto/auth.dto';
 import { UserModel } from './user.model';
-import { genSalt, hash, compare } from 'bcryptjs';
 import { USER_NOT_FOUND, WRONG_PASSWORD } from './auth.constants';
-import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
@@ -25,12 +25,7 @@ export class AuthService {
   }
 
   async findUser(email: string) {
-    return this.userModel
-      .findOne({ email })
-      .exec()
-      .catch(() => {
-        throw new HttpException('', HttpStatus.NOT_FOUND);
-      });
+    return this.userModel.findOne({ email }).exec();
   }
 
   async validateUser(email: string, password: string): Promise<Pick<UserModel, 'email'>> {

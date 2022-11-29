@@ -7,7 +7,6 @@ import { UserModel } from '../user.model';
 @Injectable()
 export class JWTStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly configService: ConfigService) {
-    console.log('LOG:  ~ constructor ~ configService', configService);
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: true,

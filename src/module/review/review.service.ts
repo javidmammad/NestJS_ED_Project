@@ -11,11 +11,11 @@ export class ReviewService {
   constructor(@InjectModel(ReviewModel) private readonly model: ModelType<ReviewModel>) {}
 
   async create(dto: CreateReviewDto): Promise<DocumentType<ReviewModel>> {
-    return await this.model.create(dto);
+    return this.model.create(dto);
   }
 
   async delete(id: string): Promise<DocumentType<ReviewModel> | null> {
-    return await this.model.findByIdAndDelete(id).exec();
+    return this.model.findByIdAndDelete(id).exec();
   }
 
   async findByProductId(productId: string): Promise<DocumentType<ReviewModel>[]> {
@@ -23,7 +23,7 @@ export class ReviewService {
     if (!isValid) {
       throw new HttpException(REVIEW_NOT_FOUND, HttpStatus.NOT_FOUND);
     }
-    return await this.model
+    return this.model
       .find({ productId: new Types.ObjectId(productId) })
       .exec()
       .catch(() => {
@@ -32,6 +32,6 @@ export class ReviewService {
   }
 
   async deleteByProductId(productId: string): Promise<DocumentType<any>> {
-    return await this.model.deleteMany({ productId: new Types.ObjectId(productId) }).exec();
+    return this.model.deleteMany({ productId: new Types.ObjectId(productId) }).exec();
   }
 }

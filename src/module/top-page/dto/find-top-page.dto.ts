@@ -1,5 +1,7 @@
-import { TopLevelVCategory } from '../top-page.model';
+import { IsEnum } from 'class-validator';
+import { TopLevelCategory } from '../top-page.model';
 
 export class FindTopPageDto {
-  firstCategory: TopLevelVCategory;
+  @IsEnum(TopLevelCategory)
+  firstCategory: TopLevelCategory;
 }
